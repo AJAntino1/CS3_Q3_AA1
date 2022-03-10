@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="html, css, javascript">
+    <meta name="author" content="AJ D. Antino">
+    <style>
+      div {
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+
+<div>
+  <h2> Calculate if my Birthday was a Leap Year </h2>
+  <br>
+  <input type=date id="BDAY">
+  <button onclick="calcIfLeapYear()"> Calculate Birthday</button>
+</div>
+
+<script>
+
+  function calcIfLeapYear() { 
+
+    let userinput = document.getElementById("BDAY").value;
+
+    if(userinput == null || userinput == '' || userinput == NaN)
+      document.write("Pls input your birthday!");
+
+    let date = new Date(userinput);
+    console.log(date);
+
+    let year = date.getUTCFullYear();
+    console.log(year);
+
+    if(year % 4 == 0 && year % 100 != 0)
+      document.write("Your birthdate was a leap year.");
+
+    else if(year % 100 == 0 && year % 400 != 0)
+      document.write("Your birthdate was not a leap year.");
+
+    else if(year % 100 == 0 && year % 400 == 0)
+      document.write("Your birthdate was a leap year.");
+
+    else
+      document.write("Your birthdate was not a leap year.");
+  }
+
+</script>
+</body>
+</html>
